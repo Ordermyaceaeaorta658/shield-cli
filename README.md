@@ -92,7 +92,7 @@
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/agungprasastia/shield-cli.git
 cd shield-cli
 
 # Create virtual environment
