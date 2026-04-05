@@ -1,0 +1,132 @@
+﻿# ═══════════════════════════════════════════════════════════════
+# Shield — Configuration File
+# AI-Powered Penetration Testing Automation
+# ═══════════════════════════════════════════════════════════════
+
+# ── AI Provider Configuration ──────────────────────────────────
+ai:
+  # Active Provider: gemini, openai, claude, openrouter
+  provider: gemini
+
+  # Google Gemini (default — free tier available)
+  gemini:
+    model: gemini-2.5-flash
+    api_key: null  # Or set GOOGLE_API_KEY env var
+
+  # OpenAI GPT-4
+  openai:
+    model: gpt-4o
+    api_key: null  # Or set OPENAI_API_KEY env var
+
+  # Anthropic Claude
+  claude:
+    model: claude-sonnet-4-20250514
+    api_key: null  # Or set ANTHROPIC_API_KEY env var
+
+  # OpenRouter (access many models via one API)
+  openrouter:
+    model: anthropic/claude-3.5-sonnet
+    api_key: null  # Or set OPENROUTER_API_KEY env var
+
+  # General AI Settings
+  temperature: 0.2
+  max_tokens: 8000
+  timeout: 60
+  rate_limit: 2  # requests per minute
+
+# ── Penetration Testing Settings ──────────────────────────────
+pentest:
+  # Safe mode prevents destructive tool flags (e.g. sqlmap --risk=3)
+  safe_mode: true
+
+  # Require user confirmation before executing each tool
+  require_confirmation: true
+
+  # Max tools to run in parallel
+  max_parallel_tools: 3
+
+  # Max recursive scan depth
+  max_depth: 3
+
+  # Tool execution timeout (seconds)
+  tool_timeout: 300
+
+# ── Output Configuration ──────────────────────────────────────
+output:
+  # Default report format: markdown, html, json
+  format: markdown
+
+  # Report save directory
+  save_path: ./reports
+
+  # Include AI reasoning traces in reports
+  include_reasoning: true
+
+  # Verbosity: quiet, normal, verbose, debug
+  verbosity: normal
+
+# ── Scope Validation ──────────────────────────────────────────
+scope:
+  # Never scan these networks (CIDR)
+  blacklist:
+    - 127.0.0.0/8
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+
+  # Require explicit scope file
+  require_scope_file: false
+
+  # Max targets per scan
+  max_targets: 100
+
+# ── Tool Defaults ─────────────────────────────────────────────
+tools:
+  nmap:
+    enabled: true
+    default_args: "-sV -sC"
+    timing: T4
+
+  httpx:
+    enabled: true
+    threads: 50
+    timeout: 10
+    tech_detect: true
+
+  subfinder:
+    enabled: true
+    sources: ["crtsh", "hackertarget"]
+
+  nuclei:
+    enabled: true
+    severity: ["critical", "high", "medium"]
+    templates_path: ~/nuclei-templates
+
+  sqlmap:
+    enabled: true
+    risk: 1      # 1-3 (safe_mode caps at 1)
+    level: 1     # 1-5
+
+  gobuster:
+    enabled: true
+    threads: 30
+    wordlist: /usr/share/wordlists/dirb/common.txt
+
+  ffuf:
+    enabled: true
+    threads: 40
+    timeout: 10
+
+# ── Workflow Settings ─────────────────────────────────────────
+workflows:
+  timeout: 3600
+  save_intermediate: true
+  resume_on_failure: true
+  max_steps: 20
+
+# ── Logging ───────────────────────────────────────────────────
+logging:
+  enabled: true
+  path: ./logs/Shield.log
+  level: INFO
+  log_ai_decisions: true
