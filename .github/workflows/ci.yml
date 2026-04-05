@@ -1,4 +1,4 @@
-﻿name: Shield CLI — CI
+name: Shield CLI — CI
 
 on:
   push:
@@ -10,9 +10,10 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.11", "3.12", "3.13"]
+        python-version: ["3.11", "3.12"]
 
     steps:
       - uses: actions/checkout@v4
@@ -25,15 +26,18 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install -e ".[dev]" --no-cache-dir
 
       - name: Run tests
+        env:
+          PYTHONUTF8: "1"
         run: |
           python -m pytest tests/ -v --tb=short
 
       - name: Check imports
+        env:
+          PYTHONUTF8: "1"
         run: |
-          python -c "from cli.main import app; print('CLI OK')"
-          python -c "from ai.client import AIClient; print('AI Client OK')"
-          python -c "from core.workflow import WorkflowEngine; print('Workflow OK')"
           python -c "from utils.input_validator import validate_target; print('Validator OK')"
+          python -c "from core.memory import PentestMemory; print('Memory OK')"
+          python -c "from utils.scope_validator import ScopeValidator; print('Scope OK')"

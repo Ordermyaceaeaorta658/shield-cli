@@ -1,13 +1,3 @@
-<div align="center">
-
-# 🛡️ Shield CLI
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-**Shield** is an AI-powered penetration testing automation framework that combines multiple AI providers (OpenAI GPT-4, Claude, Google Gemini, OpenRouter) with 19 battle-tested security tools to deliver intelligent, adaptive security assessments.
-
 </div>
 
 ```
@@ -28,6 +18,14 @@
 ```
 
 <div align="center">
+
+# 🛡️ Shield CLI
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+**Shield** is an AI-powered penetration testing automation framework that combines multiple AI providers (OpenAI GPT-4, Claude, Google Gemini, OpenRouter) with 19 battle-tested security tools to deliver intelligent, adaptive security assessments.
 
 [Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Contributing](#-contributing)
 
@@ -231,11 +229,3 @@ docker-compose run shield workflow run --name web_pentest --target example.com
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
-
-<div align="center">
-
-**Shield — Your Digital Armor** 🛡️
-
-Made with ❤️ for the security community
-
-</div>
