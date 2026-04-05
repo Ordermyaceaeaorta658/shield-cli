@@ -26,7 +26,7 @@ class AIClient:
             from dotenv import load_dotenv
             load_dotenv()
         except ImportError:
-            pass
+            pass  # dotenv is optional
 
         # Determine active provider
         self.provider_name = provider_override or config.get("ai", {}).get("provider", "gemini")
@@ -91,7 +91,7 @@ class AIClient:
             from dotenv import load_dotenv
             load_dotenv()
         except ImportError:
-            pass
+            pass  # dotenv is optional
 
         logger = get_logger(config)
         status = {}

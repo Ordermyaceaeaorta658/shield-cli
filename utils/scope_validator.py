@@ -23,7 +23,7 @@ class ScopeValidator:
             try:
                 self.blacklist.append(ipaddress.ip_network(cidr, strict=False))
             except ValueError:
-                pass
+                pass  # skip invalid CIDR entries
 
         self.require_scope_file = scope_config.get("require_scope_file", False)
         self.max_targets = scope_config.get("max_targets", 100)

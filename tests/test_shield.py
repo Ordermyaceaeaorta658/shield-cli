@@ -3,7 +3,6 @@ Shield CLI — Unit Tests
 Run with: python -m pytest tests/ -v
 """
 
-import pytest
 import sys
 import os
 
@@ -231,11 +230,6 @@ class TestToolSafety:
     def test_block_sqlmap_high_risk(self):
         from core.tool_agent import ToolAgent
         config = {"pentest": {"safe_mode": True}}
-
-        class FakeClient:
-            pass
-        class FakeMemory:
-            target = "example.com"
 
         agent = ToolAgent.__new__(ToolAgent)
         agent.config = config

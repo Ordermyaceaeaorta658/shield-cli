@@ -16,7 +16,7 @@ try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    pass
+    pass  # dotenv is optional — API keys can be set via env vars
 
 import typer
 from rich.console import Console
