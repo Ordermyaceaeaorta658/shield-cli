@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom — Penetration Test Report</title>
+    <style>
+        :root {
+            --bg: #0f0f14;
+            --surface: #1a1a24;
+            --border: #2a2a3a;
+            --text: #e4e4ef;
+            --text-dim: #8888a0;
+            --accent: #7c5cfc;
+            --critical: #ff4757;
+            --high: #ff6b35;
+            --medium: #ffa502;
+            --low: #2ed573;
+            --info: #45aaf2;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
+        h2 { font-size: 1.5rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
+        .meta { color: var(--text-dim); margin-bottom: 2rem; }
+        .meta span { margin-right: 2rem; }
+
+        /* Summary cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .summary-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .summary-card .count { font-size: 2.5rem; font-weight: 700; }
+        .summary-card .label { font-size: 0.85rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sev-critical .count { color: var(--critical); }
+        .sev-high .count { color: var(--high); }
+        .sev-medium .count { color: var(--medium); }
+        .sev-low .count { color: var(--low); }
+        .sev-info .count { color: var(--info); }
+
+        /* Findings */
+        .finding {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--border);
+        }
+        .finding.severity-critical { border-left-color: var(--critical); }
+        .finding.severity-high { border-left-color: var(--high); }
+        .finding.severity-medium { border-left-color: var(--medium); }
+        .finding.severity-low { border-left-color: var(--low); }
+        .finding.severity-info { border-left-color: var(--info); }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-critical { background: var(--critical); color: #fff; }
+        .badge-high { background: var(--high); color: #fff; }
+        .badge-medium { background: var(--medium); color: #111; }
+        .badge-low { background: var(--low); color: #111; }
+        .badge-info { background: var(--info); color: #fff; }
+
+        pre {
+            background: #12121a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            color: #c8c8e0;
+        }
+        .exec-summary {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        .remediation { color: var(--low); margin-top: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.6rem 1rem; border: 1px solid var(--border); text-align: left; }
+        th { background: var(--surface); color: var(--text-dim); font-weight: 600; }
+        .footer { text-align: center; color: var(--text-dim); margin-top: 3rem; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔐 Penetration Test Report</h1>
+    <div class="meta">
+        <span>🎯 <strong>Target:</strong> {{ target }}</span>
+        <span>📅 <strong>Date:</strong> {{ date }}</span>
+        <span>🆔 <strong>Session:</strong> {{ session_id }}</span>
+        <span>⏱ <strong>Duration:</strong> {{ duration }}</span>
+    </div>
+
+    <h2>Executive Summary</h2>
+    <div class="exec-summary">
+        {{ executive_summary | replace('\n', '<br>') }}
+    </div>
+
+    <h2>Findings Overview</h2>
+    <div class="summary-grid">
+        <div class="summary-card sev-critical">
+            <div class="count">{{ findings_summary.get('critical', 0) }}</div>
+            <div class="label">Critical</div>
+        </div>
+        <div class="summary-card sev-high">
+            <div class="count">{{ findings_summary.get('high', 0) }}</div>
+            <div class="label">High</div>
+        </div>
+        <div class="summary-card sev-medium">
+            <div class="count">{{ findings_summary.get('medium', 0) }}</div>
+            <div class="label">Medium</div>
+        </div>
+        <div class="summary-card sev-low">
+            <div class="count">{{ findings_summary.get('low', 0) }}</div>
+            <div class="label">Low</div>
+        </div>
+        <div class="summary-card sev-info">
+            <div class="count">{{ findings_summary.get('info', 0) }}</div>
+            <div class="label">Info</div>
+        </div>
+    </div>
+
+    <h2>Technical Findings</h2>
+    {% for finding in findings %}
+    <div class="finding severity-{{ finding.severity }}">
+        <h3>
+            <span class="badge badge-{{ finding.severity }}">{{ finding.severity | upper }}</span>
+            {{ finding.title }}
+        </h3>
+        <p><strong>Tool:</strong> {{ finding.tool }} &nbsp;|&nbsp; <strong>Target:</strong> {{ finding.target }}</p>
+        <p>{{ finding.description }}</p>
+
+        {% if finding.evidence %}
+        <h4>Evidence</h4>
+        <pre>{{ finding.evidence }}</pre>
+        {% endif %}
+
+        {% if finding.raw_evidence %}
+        <details>
+            <summary>📋 Raw Tool Output (click to expand)</summary>
+            <pre>{{ finding.raw_evidence[:2000] }}</pre>
+        </details>
+        {% endif %}
+
+        {% if finding.remediation %}
+        <p class="remediation"><strong>✅ Remediation:</strong> {{ finding.remediation }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    {% if findings | length == 0 %}
+    <div class="finding">
+        <p>No findings were identified during this assessment.</p>
+    </div>
+    {% endif %}
+
+    <h2>Tool Executions</h2>
+    <table>
+        <thead>
+            <tr><th>Tool</th><th>Target</th><th>Duration</th><th>Exit Code</th><th>Command</th></tr>
+        </thead>
+        <tbody>
+            {% for exec in tool_executions %}
+            <tr>
+                <td>{{ exec.tool }}</td>
+                <td>{{ exec.target }}</td>
+                <td>{{ "%.2f" | format(exec.duration) }}s</td>
+                <td>{{ exec.exit_code }}</td>
+                <td><code>{{ exec.command[:80] }}{% if exec.command | length > 80 %}...{% endif %}</code></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if remediation_plan %}
+    <h2>Remediation Plan</h2>
+    <div class="exec-summary">
+        {{ remediation_plan | replace('\n', '<br>') }}
+    </div>
+    {% endif %}
+
+    {% if ai_decisions %}
+    <h2>AI Decision Trace</h2>
+    <details>
+        <summary>🤖 View AI Reasoning ({{ ai_decisions | length }} decisions)</summary>
+        {% for decision in ai_decisions %}
+        <div class="finding" style="border-left-color: var(--accent);">
+            <p><strong>Agent:</strong> {{ decision.agent }} &nbsp;|&nbsp; <strong>Time:</strong> {{ decision.timestamp }}</p>
+            <p><strong>Decision:</strong> {{ decision.decision[:300] }}</p>
+            <details>
+                <summary>View Reasoning</summary>
+                <pre>{{ decision.reasoning[:500] }}</pre>
+            </details>
+        </div>
+        {% endfor %}
+    </details>
+    {% endif %}
+
+    <div class="footer">
+        <p>Report generated by <strong>Phantom CLI</strong> — AI-Powered Penetration Testing Framework</p>
+    </div>
+</div>
+</body>
+</html>
